@@ -11,6 +11,6 @@ exports.controller = ($scope, Appointment) ->
   $scope.days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
   $scope.findDateByColumnAndRow = (col, row) ->
-    date = moment().startOf('day').day(-14 + col + 7 * row).format("dddd, Do")
+    date = moment().startOf('week').subtract(14, "days").add(col + (row*7), "days").format("dddd, Do")
     return date
     
